@@ -1,0 +1,10 @@
+del *.bak
+del *.aux
+del *.log
+del *.snm
+del *.toc
+del *.nav
+del *.out
+del *.pgf
+del *.dvi
+del *.vrb

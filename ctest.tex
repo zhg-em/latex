@@ -1,0 +1,75 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{framed,xcolor}
+\usepackage{amsmath,amssymb,varwidth,tikz}
+\usetikzlibrary{calc}
+ 
+%定义加框环境；==============================================================================================================================
+\newcommand{\mybox}[4][\textwidth-\pgfkeysvalueof{/pgf/inner xsep}-2mm]{%
+\begin{figure}[!ht]
+    \centering
+    \begin{tikzpicture}
+        \node[line width=.5mm, rounded corners, draw=#2, inner ysep=10pt, text width=#1, outer sep=0] (one) 
+        {\vspace*{15pt}\\\begin{varwidth}{\textwidth}#4\end{varwidth}};
+        \node[text=white,anchor=north east,align=center, minimum height=20pt] (two) at (one.north east) {#3 \hspace*{.5mm}};
+        \path[fill=#2] (one.north west|-two.west) -- ($(two.west)+(-1.5cm,0)$) to [out=0,in=180] (two.south west) --
+        (two.south east) [rounded corners] --(one.north east) -- (one.north west) [sharp corners] -- cycle;
+        \node[text=white,anchor=north east,align=center, minimum height=20pt, text height=2ex]
+        (three) at (one.north east) {#3 \hspace*{.5mm}};
+    \end{tikzpicture}
+\end{figure}}
+%================================================================================================================================定义加框环境；
+%设置背景色
+\definecolor{shadecolor}{cmyk}{1,0.5,0,0}
+% \colorlet{shadecolor}{blue!20}
+% 支持的字体 \songti、\heiti、\fangsong、\kaishu、\lishu、\youyuan
+
+\begin{document}
+    中文\LaTeX 示例。\\
+    Cowards die many times before their deaths.\\
+   { \kaishu 懦夫在未死之前，已身历多次死亡的恐怖了。（楷体）}
+
+    \begin{verse}
+        Stray birds of summer come to my window to sing and fly away. \\
+        And yellow leaves of autumn, which have no songs, \\
+        flutter and fall there with a sign.\\
+        \hfill \emph{Rabindranath Tagore}
+    \end{verse}
+    \begin{verse}
+       \heiti 夏天的飞鸟，飞到我的窗前唱歌，又飞去了。\\
+        秋天的黄叶，它们没有什么可唱，只叹息一声，飞落在那里。（黑体）\\
+        \hfill \emph{罗宾德拉纳特·泰戈尔}
+    \end{verse}
+    
+    \begin{shaded}
+      { \fangsong\color{white} Cowards die many times before their deaths.\\
+        懦夫在未死之前，已身历多次死亡的恐怖了。（仿宋）}\\
+    \end{shaded}
+
+   { \lishu 夏天的飞鸟，飞到我的窗前唱歌，又飞去了。\\
+        秋天的黄叶，它们没有什么可唱，只叹息一声，飞落在那里。（隶属）}\\
+    \hfill \emph{罗宾德拉纳特·泰戈尔}
+
+    \mybox{red!70!black}{例2.8\;电路及元件参数如图所示：}
+    {
+         懦夫在未死之前，已身历多次死亡的恐怖了。
+    }
+
+    \mybox{teal}{例2.8\;电路及元件参数如图所示：}
+    {
+         \youyuan 懦夫在未死之前，已身历多次死亡的恐怖了。（幼圆）
+    }
+
+    \mybox{green!70!black}{Super Mega Ultra Long Fancy Title}
+    {
+        \begin{enumerate}
+            \item Show that\\
+            $\displaystyle D_2f(x,y) = \frac{\partial {}}{\partial{y}} \biggl( \int_0^xg_1 (t,0) \ dt + \int_0^y g_2(x,s) \ ds \biggr)$
+            \item prove that\\
+            $\displaystyle \biggl(\forall x\in\mathbb{R}  \biggr)\biggl(\forall y \in \mathbb{R} \biggr) x\neq y\, \text{ and } \, x+y \neq 2 \implies x^{2}-2x \neq y^2-2y$
+        \end{enumerate}
+    }
+
+    夏天的飞鸟，飞到我的窗前唱歌，又飞去了。\\
+    秋天的黄叶，它们没有什么可唱，只叹息一声，飞落在那里。\\
+    \hfill \emph{罗宾德拉纳特·泰戈尔}
+\end{document}
