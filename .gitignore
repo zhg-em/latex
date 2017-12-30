@@ -1,0 +1,12 @@
+~$*.*
+*.bak
+*.aux
+*.log
+*.snm
+*.toc
+*.nav
+*.out
+*.pgf
+*.dvi
+*.vrb
+*.pdf
